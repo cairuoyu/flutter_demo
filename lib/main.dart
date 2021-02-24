@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/demo/demo_tab.dart';
+import 'package:flutter_demo/routes/routes.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,10 +9,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: getThemeData(Colors.blue),
-      home: DemoTab(),
+      getPages: Routes.routes,
     );
   }
 }
