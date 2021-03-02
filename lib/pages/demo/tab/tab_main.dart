@@ -1,69 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/test_page.dart';
+import 'package:flutter_demo/pages/demo/tab/tab_dynamic.dart';
+import 'package:flutter_demo/pages/demo/tab/tab_simple.dart';
+import 'package:flutter_demo/pages/demo/tab/tab_simple_default.dart';
 
 class TabMain extends StatefulWidget {
   @override
   _TabMainState createState() => _TabMainState();
 }
 
-class _TabMainState extends State<TabMain> with TickerProviderStateMixin {
-  TabController tabController;
-  int tabNum = 3;
-
+class _TabMainState extends State<TabMain> {
   @override
   Widget build(BuildContext context) {
-    int index = tabController?.index ?? 0;
-    index = tabNum > index ? index : tabNum - 1;
-    tabController?.dispose();
-    tabController = TabController(length: tabNum, vsync: this, initialIndex: index);
-    tabController.animateTo(tabNum - 1);
-    var tabs = List.generate(
-      tabNum,
-      (index) => Tab(
-        child: Row(
-          children: [
-            Text('tab' + index.toString()),
-            IconButton(
-              splashRadius: 10,
-              iconSize: 10,
-              icon: Icon(Icons.close_outlined),
-              onPressed: () {
-                setState(() {
-                  tabNum--;
-                });
-              },
-            )
-          ],
-        ),
-        // icon: Icon(Icons.add),
-      ),
-    );
-    var tabPages = List.generate(
-      tabNum,
-      (index) => Center(
-        child: TestPage(index),
-      ),
-    );
-
-    var tabBar = TabBar(
-      isScrollable: true,
-      tabs: tabs,
-      controller: tabController,
-    );
-    var tabBarView = TabBarView(
-      children: tabPages,
-      controller: tabController,
-    );
-    var result = Scaffold(
-      appBar: AppBar(title: Text('Demo - Tab'),bottom: tabBar,),
-      body: tabBarView,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            tabNum++;
-          });
-        },
+    var tabs = <Tab>[
+      Tab(text: 'Simple'),
+      Tab(text: 'SimpleDefault'),
+      Tab(text: 'Dynamic',)
+    ];
+    var tabBarViews = [
+      TabSimple(),
+      TabSimpleDefault(),
+      TabDynamic(),
+    ];
+    var result = DefaultTabController(
+      length: tabs.length,
+      initialIndex: 0,
+      child: Scaffold(
+        appBar: AppBar(title: Text('Tab-Demo'), bottom: TabBar(tabs: tabs)),
+        body: TabBarView(children: tabBarViews),
       ),
     );
     return result;
