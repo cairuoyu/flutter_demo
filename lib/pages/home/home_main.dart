@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/model/demo.dart';
-import 'package:flutter_demo/pages/demo/tab/tab_main.dart';
 import 'package:get/get.dart';
 
 class HomeMain extends StatefulWidget {
@@ -10,7 +9,7 @@ class HomeMain extends StatefulWidget {
 
 class _HomeMainState extends State<HomeMain> {
   List<Demo> list = <Demo>[
-    Demo(id: 'tabs', name: 'Tabs', routeName: '/tab', widget: TabMain(), icon: Icon(Icons.tab)),
+    Demo(id: 'tabs', name: 'Tabs', routeName: '/tab', icon: Icon(Icons.tab)),
     // Demo(id: 'buttons', name: 'Buttons', widget: Center(child: Text('开发中')), icon: Icon(Icons.smart_button)),
   ];
 
@@ -24,7 +23,9 @@ class _HomeMainState extends State<HomeMain> {
           leading: demo.icon,
           title: Text(demo.name),
           onTap: () {
-            demo.routeName == null ? Get.to(demo.widget) : Get.toNamed(demo.routeName);
+            demo.routeName == null
+                ? Get.to(demo.widget)
+                : Get.toNamed(demo.routeName);
           },
         );
       },

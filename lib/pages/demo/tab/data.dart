@@ -6,6 +6,6 @@ List<Tab> tabs = <Tab>[
 ];
 
 List<Widget> tabBarViews = <Widget>[
-  Center(child: Text('tabView1')),
-  Center(child: Text('tabView2')),
+  Center(child: Text('tabPage1')),
+  Center(child: Text('tabPage2')),
 ];

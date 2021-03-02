@@ -56,10 +56,7 @@ class _TabDynamicState extends State<TabDynamic> with TickerProviderStateMixin {
       controller: tabController,
     );
     var result = Scaffold(
-      appBar: AppBar(
-        title: Text('Dynamic'),
-        bottom: tabBar,
-      ),
+      appBar: AppBar(automaticallyImplyLeading: false, bottom: tabBar),
       body: tabBarView,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

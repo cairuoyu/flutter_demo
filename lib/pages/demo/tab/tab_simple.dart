@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data.dart';
+import 'data.dart';
 
 class TabSimple extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _TabSimpleState extends State<TabSimple> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var result = Scaffold(
       appBar: AppBar(
-        title: Text('Simple'),
+        automaticallyImplyLeading: false,
         bottom: TabBar(controller: _tabController, tabs: tabs),
       ),
       body: TabBarView(controller: _tabController, children: tabBarViews),

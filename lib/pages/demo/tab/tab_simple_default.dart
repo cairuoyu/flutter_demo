@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data.dart';
+import 'data.dart';
 
 class TabSimpleDefault extends StatelessWidget {
   @override
@@ -9,7 +9,7 @@ class TabSimpleDefault extends StatelessWidget {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('SimpleDefault'),
+          automaticallyImplyLeading: false,
           bottom: TabBar(tabs: tabs),
         ),
         body: TabBarView(children: tabBarViews),
