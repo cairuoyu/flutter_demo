@@ -17,9 +17,21 @@ class Routes {
           page: () => DemoBrowser(
             title: 'Demo-Tab',
             demoItems: [
-              DemoItem(name: 'Simple', widget: TabSimple()),
-              DemoItem(name: 'SimpleDefault', widget: TabSimpleDefault()),
-              DemoItem(name: 'Dynamic', widget: TabDynamic()),
+              DemoItem(
+                name: 'Simple',
+                widget: TabSimple(),
+                codePath: 'lib/pages/demo/tab/tab_simple.dart',
+              ),
+              DemoItem(
+                name: 'SimpleDefault',
+                widget: TabSimpleDefault(),
+                codePath: 'lib/pages/demo/tab/tab_simple_default.dart',
+              ),
+              DemoItem(
+                name: 'Dynamic',
+                widget: TabDynamic(),
+                codePath: 'lib/pages/demo/tab/tab_dynamic.dart',
+              ),
             ],
           ),
         ),

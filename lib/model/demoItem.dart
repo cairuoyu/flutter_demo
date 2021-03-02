@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class DemoItem{
   String id;
   String name;
+  String codePath;
   Widget widget;
 
 //<editor-fold desc="Data Methods" defaultstate="collapsed">
@@ -10,24 +11,27 @@ class DemoItem{
   DemoItem({
     this.id,
     this.name,
+    this.codePath,
     this.widget,
   });
 
   DemoItem copyWith({
     String id,
     String name,
+    String codePath,
     Widget widget,
   }) {
     return new DemoItem(
       id: id ?? this.id,
       name: name ?? this.name,
+      codePath: codePath ?? this.codePath,
       widget: widget ?? this.widget,
     );
   }
 
   @override
   String toString() {
-    return 'DemoItem{id: $id, name: $name, widget: $widget}';
+    return 'DemoItem{id: $id, name: $name, codePath: $codePath, widget: $widget}';
   }
 
   @override
@@ -37,15 +41,18 @@ class DemoItem{
           runtimeType == other.runtimeType &&
           id == other.id &&
           name == other.name &&
+          codePath == other.codePath &&
           widget == other.widget);
 
   @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ widget.hashCode;
+  int get hashCode =>
+      id.hashCode ^ name.hashCode ^ codePath.hashCode ^ widget.hashCode;
 
   factory DemoItem.fromMap(Map<String, dynamic> map) {
     return new DemoItem(
       id: map['id'] as String,
       name: map['name'] as String,
+      codePath: map['codePath'] as String,
       widget: map['widget'] as Widget,
     );
   }
@@ -55,6 +62,7 @@ class DemoItem{
     return {
       'id': this.id,
       'name': this.name,
+      'codePath': this.codePath,
       'widget': this.widget,
     } as Map<String, dynamic>;
   }
