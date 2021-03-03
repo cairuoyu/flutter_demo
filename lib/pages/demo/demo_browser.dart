@@ -34,9 +34,7 @@ class _DemoBrowserState extends State<DemoBrowser> {
           if (snapshot.hasData) {
             return Text(snapshot.data);
           }
-          return Center(
-            child: CircularProgressIndicator(),
-          );
+          return Center(child: CircularProgressIndicator());
         },
       );
       return SingleChildScrollView(

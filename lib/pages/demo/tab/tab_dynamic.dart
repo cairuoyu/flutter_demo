@@ -15,8 +15,7 @@ class _TabDynamicState extends State<TabDynamic> with TickerProviderStateMixin {
     int index = tabController?.index ?? 0;
     index = tabNum > index ? index : tabNum - 1;
     tabController?.dispose();
-    tabController =
-        TabController(length: tabNum, vsync: this, initialIndex: index);
+    tabController = TabController(length: tabNum, vsync: this, initialIndex: index);
     tabController.animateTo(tabNum - 1);
     var tabs = List.generate(
       tabNum,
