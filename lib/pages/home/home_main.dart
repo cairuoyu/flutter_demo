@@ -9,7 +9,8 @@ class HomeMain extends StatefulWidget {
 
 class _HomeMainState extends State<HomeMain> {
   List<Demo> list = <Demo>[
-    Demo(id: 'tabs', name: 'Tabs', routeName: '/tab', icon: Icon(Icons.tab)),
+    Demo(id: 'tab', name: 'Tab', routeName: '/tab', icon: Icon(Icons.tab)),
+    Demo(id: 'list', name: 'List', routeName: '/list', icon: Icon(Icons.tab)),
     // Demo(id: 'buttons', name: 'Buttons', widget: Center(child: Text('开发中')), icon: Icon(Icons.smart_button)),
   ];
 
